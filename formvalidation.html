@@ -1,0 +1,100 @@
+<html>
+<head><title>haai</title>
+</head>
+<body align="center">
+<h2>FORM</h2>
+
+<form name="form" action="a.html" method="POST" onsubmit="return validateForm()">
+Name : <input type="text" name="ename"><br><br>
+Email : <input type="text" name="ml"><br><br>
+Mobile : <input type="number" name="mob"><br><br>
+Username : <input type="text" name="usname"><br><br>
+Password : <input type="password" name="pwd"><br><br>
+Confirm Password : <input type="password" name="cpwd"><br><br>
+<input type="submit" value="submit">
+<input type="reset" value="reset">
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+var nm=document.form.ename.value;
+var mil=document.form.ml.value;
+var at=mil.indexOf("@");
+var dot=mil.lastIndexOf(".");
+var mb=document.form.mob.value;
+var us=document.form.usname.value;
+var pd=document.form.pwd.value;
+var cpd=document.form.cpwd.value;
+
+if(nm=="")
+{
+alert("Enter Name !!");
+document.form.ename.focus();
+return false;
+}
+
+if(mil=="")
+{
+alert("Enter Mail !!");
+document.form.ml.focus();
+return false;
+}
+else if(at<1 || dot<at+2 ||dot+2>=mil.length)
+{
+alert("Enter Valid Mail !!");
+document.form.ml.focus();
+return false;
+}
+
+if(mb=="")
+{
+alert("Enter Mob no !!");
+document.form.mob.focus();
+return false;
+}
+else if(mb.length!=10)
+{
+alert("Enter Mob with 10 digits !!");
+document.form.mob.focus();
+return false;
+}
+
+if(us=="")
+{
+alert("Enter Username !!");
+document.form.usname.focus();
+return false;
+}
+
+if(pd=="")
+{
+alert("Enter Password !!");
+document.form.pwd.focus();
+return false;
+}
+else if(pd.length<6)
+{
+alert("Enter Min 6 digit password !!");
+document.form.pwd.focus();
+return false;
+}
+
+
+if(cpd=="")
+{
+alert("Confirm Password !!");
+document.form.cpwd.focus();
+return false;
+}
+else if(cpd!=pd)
+{
+alert("Password must be same !!");
+document.form.cpwd.focus();
+return false;
+}
+
+}
+</script>
+</body>
+</html>
